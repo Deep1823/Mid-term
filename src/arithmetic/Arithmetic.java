@@ -6,8 +6,8 @@
 package arithmetic;
 
 
+import arithmetic.ArithmeticBase.Operations;
 import java.util.Scanner;
-import static java.time.Clock.system;
 
 /** This class calls the method to perform 
  * arithmetic operations based on user input
@@ -26,10 +26,15 @@ public class Arithmetic
        
         ArithmeticBase r= new ArithmeticBase();
         Scanner in= new Scanner(System.in);
-        int n= in.nextInt();
-        int m= in.nextInt();
-        double result = r.calculate(m,n);
+        double m= in.nextInt();
+        double n= in.nextInt();
+        System.out.print("Enter the operation you want to perform(ADD, MINUS, TIMES, DIVIDE): ");
+        String value = in.next();
+        Operations s = Operations.valueOf(value.toUpperCase());
+        double result = r.calculate(m,n,s);
         System.out.println("result :" +result); 
+        
+         
     
     }
 }
